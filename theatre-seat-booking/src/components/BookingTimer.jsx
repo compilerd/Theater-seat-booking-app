@@ -4,7 +4,7 @@ import { setBookingExpired } from "../redux/actions/timerActions";
 import { useHistory } from "react-router-dom";
 
 const BookingTimer = () => {
-  const [seconds, setSeconds] = useState(120); // 5 minutes
+  const [seconds, setSeconds] = useState(120); // 2 minutes
   const history = useHistory();
 
   const dispatch = useDispatch();

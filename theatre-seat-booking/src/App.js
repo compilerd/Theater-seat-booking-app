@@ -8,7 +8,6 @@ import BookingFlow from "./components/BookingFlow";
 function App() {
   return (
     <Provider store={store}>
-      \
       <Router>
         <div>
           <Switch>
