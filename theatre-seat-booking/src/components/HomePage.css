@@ -1,21 +1,16 @@
-/* components/HomePage.css */
-
-/* Container styles */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Heading styles */
 .home-page-heading {
   font-size: 3rem;
-  color: #333; /* Dark text color */
+  color: #333;
   margin-bottom: 20px;
   text-align: center;
 }
 
-/* Show item styles */
 .show-item {
   display: flex;
   justify-content: space-between;

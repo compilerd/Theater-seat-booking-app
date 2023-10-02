@@ -23,7 +23,7 @@ const SeatAllocationPage = ({ selectedSeats, selectSeats }) => {
 
   //for mocking unavailable seats
   useEffect(() => {
-    selectSeats([4, 7, 9]);
+    selectSeats([4, 7, 9, 15]);
   }, []);
 
   // call when seats are selected/unselected for total bill amount display
@@ -52,22 +52,28 @@ const SeatAllocationPage = ({ selectedSeats, selectSeats }) => {
           </Button>
         ))}
       </div>
-      <div>
-        <Typography variant="h5">Selected Seats:</Typography>
-        <ul>
-          {localSelectedSeats.map((seat) => (
-            <li key={seat}>Seat {seat}</li>
-          ))}
-        </ul>
-        <Typography variant="h5">Total Cost:</Typography>
-        <ul>{totalMoney}</ul>
+      {localSelectedSeats?.length ? (
+        <div>
+          <Typography variant="h5">Selected Seats:</Typography>
+          <ul>
+            {localSelectedSeats.map((seat) => (
+              <li key={seat}>Seat {seat}</li>
+            ))}
+          </ul>
+          <Typography variant="h5">Total Cost:</Typography>
+          <ul>{totalMoney}</ul>
 
-        <Link to="/checkout">
-          <Button variant="contained" color="primary" onClick={handleContinue}>
-            Continue
-          </Button>
-        </Link>
-      </div>
+          <Link to="/checkout">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleContinue}
+            >
+              Continue
+            </Button>
+          </Link>
+        </div>
+      ) : null}
     </div>
   );
 };
