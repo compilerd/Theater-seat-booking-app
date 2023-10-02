@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Typography } from "@mui/material";
 import { selectShow } from "../redux/actions/showActions";
-import "./HomePage.css"; // Link CSS
+import "./HomePage.css";
 
 const HomePage = ({ shows, selectShow }) => {
   return (
@@ -25,7 +25,6 @@ const HomePage = ({ shows, selectShow }) => {
               to={`/show/${show.id}`}
               className="show-item-link"
               onClick={() => {
-                console.log("d", show);
                 return selectShow(show);
               }}
             >
