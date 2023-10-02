@@ -70,3 +70,24 @@
 .book-now-button:hover {
   background-color: #e64a19; /* Darker shade of orange on hover */
 }
+.timing-list {
+  list-style-type: none;
+  padding: 0;
+}
+.timing-list li {
+  margin-bottom: 10px;
+}
+
+.timing-list button {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.timing-list button.selected {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+}

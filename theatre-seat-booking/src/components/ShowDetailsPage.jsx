@@ -1,18 +1,25 @@
 // components/ShowDetailsPage.js
 
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Typography, Button } from "@mui/material";
+import { selectTiming } from "../redux/actions/timingActions";
 import "./ShowDetailsPage.css";
 
-const ShowDetailsPage = ({ shows }) => {
+const ShowDetailsPage = ({ shows, selectTiming }) => {
+  const [selectedTiming, setSelectedTiming] = useState(null);
   const { id } = useParams();
   const show = shows.find((show) => show.id === parseInt(id));
 
   if (!show) {
     return <div>Loading...</div>;
   }
+
+  const handleTimingSelect = (timing) => {
+    setSelectedTiming(timing);
+    selectTiming(timing);
+  };
 
   return (
     <div className="container">
@@ -27,17 +34,34 @@ const ShowDetailsPage = ({ shows }) => {
         />
         <div className="details-section-details">
           <div>
-            <div className="details-section-name">{show.name}</div>
+            <div className="details-section-name">{show?.name}</div>
             <div className="details-section-description">
-              {show.description}
+              {show?.description}
             </div>
             <div className="details-section-timings">
-              Timings: {show?.timings?.join(", ")}
+              Director: {show?.creator}
             </div>
+
+            <ul className="timing-list">
+              {show.timings.map((timing) => (
+                <li key={timing}>
+                  <button
+                    onClick={() => handleTimingSelect(timing)}
+                    className={selectedTiming === timing ? "selected" : ""}
+                  >
+                    {timing}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
-          <Button variant="contained" className="book-now-button">
-            Book Now
-          </Button>
+          {selectedTiming && (
+            <Link to="/seat-allocation">
+              <Button variant="contained" className="book-now-button">
+                Book Now
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
@@ -49,5 +73,8 @@ const mapStateToProps = (state) => {
     shows: state.shows,
   };
 };
+const mapDispatchToProps = {
+  selectTiming,
+};
 
-export default connect(mapStateToProps)(ShowDetailsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ShowDetailsPage);
