@@ -1,0 +1,41 @@
+.Checkout-page-container{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+.summary-section {
+   border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.checkout-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333; /* Dark text color */
+}
+
+.show-details {
+  font-size: 1.2rem;
+  color: #555; /* Slightly darker text color */
+}
+
+.selected-seats-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.selected-seats-list li {
+  font-size: 1rem;
+  color: #555; /* Slightly darker text color */
+}
+
+.total-price {
+  font-size: 1.2rem;
+  color: #333; /* Dark text color */
+}
+
+.pay-button {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
